@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=1.5">
+  <title>TESDA PTC Calumpit | Official Portal • Registration & Survey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(125deg, #0a2f6c 0%, #9e2a2a 100%);
+      font-family: 'Inter', sans-serif;
+      padding: 2rem 1.5rem;
+      color: #1e2a3e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><path fill="white" d="M50,0 L61,35 L97,35 L68,57 L79,92 L50,70 L21,92 L32,57 L3,35 L39,35 Z"/><circle cx="50" cy="48" r="8" fill="white"/></svg>');
+      background-repeat: repeat;
+      background-size: 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tesda-header {
+      background: linear-gradient(98deg, #0b2b5c 0%, #aa2e2e 100%);
+      padding: 1.5rem 2.5rem;
+      color: white;
+      text-align: center;
+    }
+
+    .header-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .header-logo-left {
+      flex-shrink: 0;
+    }
+
+    .header-logos-right {
+      display: flex;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .header-logo {
+      height: 100px;
+      width: 100px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+    .header-title-container {
+      text-align: center;
+    }
+
+    .header-title h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .header-title h1 span {
+      background: #f5b042;
+      font-size: 1rem;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      color: #1e2a3e;
+      font-weight: 600;
+    }
+
+    .tesda-header p {
+      margin-top: 0.4rem;
+      opacity: 0.9;
+      font-size: 0.9rem;
+    }
+
+    .form-body {
+      padding: 2rem 2.5rem;
+    }
+
+    .confirmation-body {
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      border-left: 5px solid #aa2e2e;
+      padding-left: 1rem;
+      margin: 1.5rem 0 1rem;
+      color: #0b2b5c;
+    }
+
+    .about-story {
+      background: #fefaf0;
+      border-radius: 24px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid #0b2b5c;
+    }
+
+    .about-story p {
+      line-height: 1.6;
+      color: #2d3e50;
+    }
+
+    .vmg-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .vmg-card {
+      background: #f9fafc;
+      border-radius: 24px;
+      padding: 1.5rem;
+      border-left: 5px solid #f5b042;
+    }
+
+    .vmg-card h3 {
+      color: #0b2b5c;
+      margin-bottom: 0.8rem;
+    }
+
+    .goal-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .goal-list li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    .goal-list li::before {
+      content: "‣";
+      position: absolute;
+      left: 0;
+    }
+
+    .image-banner {
+      border-radius: 24px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .image-banner img {
+      width: 100%;
+      display: block;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-field label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: #2c4b3e;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 0.85rem 1rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      background: #fefefe;
+      width: 100%;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #aa2e2e;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(170, 46, 46, 0.2);
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      background: #f9fafc;
+      padding: 0.6rem 1rem;
+      border-radius: 40px;
+    }
+
+    .radio-group div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .radio-group input {
+      width: auto;
+    }
+
+    /* Qualification Box - distinct card design */
+    .qualification-card {
+      background: linear-gradient(135deg, #f8fafd 0%, #f1f5f9 100%);
+      border-radius: 28px;
+      padding: 1.8rem;
+      margin: 0.5rem 0 1rem 0;
+      border: 1px solid rgba(170, 46, 46, 0.15);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .qual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem 1.8rem;
+    }
+
+    .qual-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.25rem 0;
+      transition: all 0.2s ease;
+    }
+
+    .qual-item:hover {
+      background: rgba(11, 43, 92, 0.03);
+      border-radius: 12px;
+      padding-left: 6px;
+    }
+
+    .qual-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: #aa2e2e;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .qual-item label {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: #1f3b4c;
+      line-height: 1.35;
+      cursor: pointer;
+    }
+
+    /* Documentary Requirements Box - distinct card design */
+    .document-card {
+      background: linear-gradient(135deg, #fefaf5 0%, #fef7ec 100%);
+      border-radius: 28px;
+      padding: 1.8rem;
+      margin: 0.5rem 0 1rem 0;
+      border: 1px solid rgba(245, 176, 66, 0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.9rem 1.8rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.25rem 0;
+      transition: all 0.2s ease;
+    }
+
+    .check-item:hover {
+      background: rgba(245, 176, 66, 0.08);
+      border-radius: 12px;
+      padding-left: 6px;
+    }
+
+    .check-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: #f5b042;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .check-item label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #2c4b3e;
+      cursor: pointer;
+    }
+
+    .btn-secondary,
+    .next-btn,
+    .submit-btn {
+      background: #2c5f4d;
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      text-align: center;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .submit-btn {
+      background: linear-gradient(95deg, #0b2b5c, #aa2e2e);
+      width: 100%;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .submit-btn:disabled {
+      background: #9bb7ae;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .btn-clear {
+      background: #7f8c8d;
+    }
+
+    .back-link {
+      background: transparent;
+      color: #0b2b5c;
+      border: 2px solid #0b2b5c;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-buttons .btn-secondary {
+      margin-top: 0;
+      flex: 1;
+    }
+
+    .survey-intro-btn {
+      background: #f5b042;
+      color: #0b2b5c;
+      border: none;
+      font-weight: 700;
+    }
+
+    .survey-card {
+      background: #f9fafc;
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid #f5b042;
+    }
+
+    .survey-field {
+      margin-bottom: 1.5rem;
+    }
+
+    .survey-field label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.75rem;
+      color: #1a3a4f;
+    }
+
+    .survey-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+    }
+
+    .survey-radio {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .survey-radio input {
+      width: 18px;
+      height: 18px;
+      accent-color: #0b2b5c;
+    }
+
+    .dimensions-grid {
+      margin: 1.5rem 0;
+    }
+
+    .dim-row {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #e9edf2;
+      padding: 1rem 0.5rem;
+      gap: 1rem;
+    }
+
+    .dim-label {
+      flex: 2;
+      font-weight: 500;
+      color: #1f2a44;
+    }
+
+    .rating-group {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      flex: 3;
+    }
+
+    .checkbox-option {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border: 1.5px solid #cfdee9;
+      border-radius: 16px;
+      padding: 0.6rem 0.9rem;
+      min-width: 58px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .checkbox-option.selected {
+      background: #0b2b5c;
+      border-color: #0b2b5c;
+      color: white;
+    }
+
+    .checkbox-option .rating-number {
+      font-weight: 800;
+      font-size: 1.3rem;
+    }
+
+    .na-option .rating-number {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .header-rating {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: flex-start;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+      background: #f8fafd;
+      padding: 0.75rem 1rem;
+      border-radius: 48px;
+    }
+
+    .header-badge {
+      min-width: 58px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.7rem;
+      color: #2c3e66;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .single-select-hint {
+      font-size: 0.75rem;
+      color: #aa2e2e;
+      margin-top: 12px;
+      text-align: left;
+      display: block;
+      font-style: italic;
+    }
+
+    .info-card {
+      background: #f4f9f6;
+      border-radius: 24px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: left;
+      border-left: 5px solid #f5b042;
+    }
+
+    .ref-number {
+      background: white;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-family: monospace;
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: inline-block;
+      margin: 1rem 0;
+      border: 1px solid #cbd5e0;
+    }
+
+    footer {
+      background: #f4f7fa;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #4a5b6e;
+      border-top: 1px solid #e2edf2;
+    }
+
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 0.8s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .loading-card {
+      background: white;
+      padding: 2rem 2.5rem;
+      border-radius: 32px;
+      text-align: center;
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3);
+      min-width: 300px;
+    }
+
+    .loading-card .spinner-large {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #e0e7ef;
+      border-radius: 50%;
+      border-top-color: #aa2e2e;
+      animation: spin 0.9s linear infinite;
+      margin: 0 auto 1rem auto;
+    }
+
+    .loading-card p {
+      font-weight: 600;
+      color: #0b2b5c;
+      font-size: 1.2rem;
+    }
+
+    .loading-card small {
+      color: #6c757d;
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    .thankyou-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 880px) {
+      .vmg-section { grid-template-columns: 1fr; }
+      .dim-row { flex-direction: column; align-items: flex-start; }
+      .rating-group { justify-content: flex-start; width: 100%; }
+      .header-title-row { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+      .header-logo-left, .header-logos-right { flex: 0 0 auto; }
+      .header-title-container { order: 2; width: 100%; margin: 0.5rem 0; }
+      .header-logo-left { order: 1; }
+      .header-logos-right { order: 3; }
+    }
+
+    @media (max-width: 780px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .header-logo { height: 65px; width: 65px; }
+      .header-title h1 { font-size: 1.4rem; }
+      .qualification-card, .document-card { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- PAGE 1: ABOUT US -->
+  <div id="aboutPage" class="page-container">
+    <div class="tesda-header">
+      <div class="header-title">
+        <div class="header-title-row">
+          <div class="header-logo-left"><img src="ptc-logo.png" class="header-logo" alt="PTC Logo" onerror="this.style.display='none'"></div>
+          <div class="header-title-container"><h1>TESDA PTC Calumpit<span>Online Registration</span></h1></div>
+          <div class="header-logos-right"><img src="logo 1.png" class="header-logo" alt="Logo 1" onerror="this.style.display='none'"><img src="logo 2.png" class="header-logo" alt="Logo 2" onerror="this.style.display='none'"></div>
+        </div>
+        <p>Training for Empowerment | Register for TVET Programs Online</p>
+      </div>
+    </div>
+    <div class="form-body">
+      <div class="section-title">📖 ABOUT US</div>
+      <div class="image-banner"><img src="tes9.png" alt="TESDA PTC Calumpit Facility" onerror="this.style.display='none'"></div>
+      <div class="about-story"><p>PTC Calumpit was established in April 1992 thru Calumpit Sangguniang Bayan Resolution No. 46-92 of LGU-Calumpit in response to the growing needs of industries for skilled manpower in the province.</p><p>The land and buildings (except the administration office) is owned and built by the local government. It operates on the strength of a Deed of Usufruct between TESDA-III and LGU-Calumpit. The renewed contract was forged on November 8, 2018. The term is good for 15 years.</p></div>
+      <div class="image-banner"><img src="tes8.png" alt="TESDA PTC Calumpit Training" onerror="this.style.display='none'"></div>
+      <div class="vmg-section"><div class="vmg-card"><h3>Vision</h3><p>Model Green TVET Training Center in Central Luzon</p></div><div class="vmg-card"><h3>Mission</h3><p>Cultivate a culture of innovativeness and sustainable practices within our institution and community in providing high-quality technical and vocational education and training.</p></div><div class="vmg-card"><h3>Goal</h3><ul class="goal-list"><li>Sustainable development and renewable energy-themed programs and projects</li><li>To produce highly competitive, innovative and industry-ready graduates</li></ul></div></div>
+      <div class="nav-buttons" style="justify-content: center; gap: 1.5rem;">
+        <button id="aboutNextBtn" class="btn-secondary" style="background: linear-gradient(95deg, #0b2b5c, #aa2e2e);">START MY REGISTRATION →</button>
+        <button id="openSurveyFromAboutBtn" class="btn-secondary survey-intro-btn">CLIENT SATISFACTION SURVEY</button>
+      </div>
+    </div>
+    <footer>🇵🇭 TESDA PTC Calumpit – Green TVET Training Center | UTPRAS Program</footer>
+  </div>
+
+  <!-- PAGE 2: REGISTRATION FORM -->
+  <div id="registrationPage" class="page-container hidden">
+    <div class="tesda-header">
+      <div class="header-title">
+        <div class="header-title-row">
+          <div class="header-logo-left"><img src="ptc-logo.png" class="header-logo" alt="PTC Logo" onerror="this.style.display='none'"></div>
+          <div class="header-title-container"><h1>TESDA PTC Calumpit<span>Online Registration</span></h1></div>
+          <div class="header-logos-right"><img src="logo 1.png" class="header-logo" alt="Logo 1" onerror="this.style.display='none'"><img src="logo 2.png" class="header-logo" alt="Logo 2" onerror="this.style.display='none'"></div>
+        </div>
+        <p>Training for Empowerment | Register for TVET Programs Online</p>
+      </div>
+    </div>
+    <div class="form-body">
+      <form id="enrollmentForm" novalidate>
+        <div class="section-title">QUALIFICATION</div>
+        <div class="qualification-card">
+          <div class="qual-grid">
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Electrical Installation Maintenance (EIM) NC ll" id="q_eim2"> <label for="q_eim2">Electrical Installation Maintenance (EIM) NC ll</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Electrical Installation Maintenance (EIM) NC lll" id="q_eim3"> <label for="q_eim3">Electrical Installation Maintenance (EIM) NC lll</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Shielded metal arc welding (SMAW) NC l" id="q_smaw1"> <label for="q_smaw1">Shielded metal arc welding (SMAW) NC l</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Shielded metal arc welding (SMAW) NC ll" id="q_smaw2"> <label for="q_smaw2">Shielded metal arc welding (SMAW) NC ll</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Dressmaking NC ll" id="q_dress"> <label for="q_dress">Dressmaking NC ll</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Driving NC II" id="q_driving"> <label for="q_driving">Driving NC II</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="PV Systems Installation NC II" id="q_pv_inst"> <label for="q_pv_inst">PV Systems Installation NC II</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="PV Systems Servicing NC III" id="q_pv_serv"> <label for="q_pv_serv">PV Systems Servicing NC III</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Solar Powered Irrigation System (SPIS)" id="q_spis"> <label for="q_spis">Solar Powered Irrigation System (SPIS)</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Produce Organic Concoctions and Extracts Leading to OAP NC II" id="q_organic"> <label for="q_organic">Produce Organic Concoctions and Extracts Leading to OAP NC II</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Produce foods by Sugar Concentrates Leading to Food Processing NC II" id="q_food"> <label for="q_food">Produce foods by Sugar Concentrates Leading to Food Processing NC II</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Barangay Health Service NC II" id="q_health"> <label for="q_health">Barangay Health Service NC II</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Entrepreneurship PQF level IV" id="q_entrep"> <label for="q_entrep">Entrepreneurship PQF level IV</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Community Based Trainers Methodology (CBTMC)" id="q_cbtmc"> <label for="q_cbtmc">Community Based Trainers Methodology (CBTMC)</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Develop Learning Materials for E-learning Leading to TM II" id="q_tm2"> <label for="q_tm2">Develop Learning Materials for E-learning Leading to TM II</label></div>
+            <div class="qual-item"><input type="radio" name="qualificationRadio" value="Facilitate e-Learning Sessions (FeLS) Leading to TM I" id="q_fels"> <label for="q_fels">Facilitate e-Learning Sessions (FeLS) Leading to TM I</label></div>
+          </div>
+          <small class="single-select-hint">✔ Select ONE qualification training program.</small>
+        </div>
+
+        <div class="section-title">Personal Information</div>
+        <div class="grid-2">
+          <div class="form-field"><label>Full Name (First Middle Last) *</label><input type="text" id="fullname" placeholder="e.g., JUAN B. CRUZ"></div>
+          <div class="form-field"><label>Middle Name *</label><input type="text" id="middlename" placeholder="e.g., Bautista"></div>
+          <div class="form-field"><label>Phone number *</label><input type="tel" id="phone" placeholder="09XX XXX XXXX"></div>
+          <div class="form-field"><label>Complete residential address *</label><input type="text" id="address" placeholder="Street, Barangay, Municipality, Province"></div>
+          <div class="form-field"><label>Email Address *</label><input type="email" id="email" placeholder="juancruz11@gmail.com"></div>
+          <div class="form-field"><label>Sex: *</label><div class="radio-group"><div><input type="radio" name="sex" value="Male" id="male"> <label for="male">Male</label></div><div><input type="radio" name="sex" value="Female" id="female"> <label for="female">Female</label></div></div></div>
+          <div class="form-field"><label>Date of Birth *</label><input type="date" id="dob"></div>
+          <div class="form-field"><label>Age *</label><input type="number" id="age" placeholder="e.g., 25"></div>
+          <div class="form-field"><label>CIVIL STATUS *</label><select id="civilstatus"><option value="" disabled selected>-- Select --</option><option>Single</option><option>Married</option><option>Divorced</option><option>Widowed</option><option>Separated</option></select></div>
+        </div>
+
+        <div class="section-title">Documentary Requirements *</div>
+        <div class="document-card">
+          <div class="checkbox-group" id="requirementsGroup">
+            <div class="check-item"><input type="checkbox" value="NONE" id="req_none"> <label for="req_none">NONE</label></div>
+            <div class="check-item"><input type="checkbox" value="COPY OF BIRTH CERTIFICATE" id="req_birth"> <label for="req_birth">COPY OF BIRTH CERTIFICATE</label></div>
+            <div class="check-item"><input type="checkbox" value="HIGH SCHOOL/ALS RATING CARD/DIPLOMA/TOR" id="req_hs"> <label for="req_hs">HIGH SCHOOL/ALS RATING CARD/DIPLOMA/TOR</label></div>
+            <div class="check-item"><input type="checkbox" value="BARANGAY CLEARANCE" id="req_barangay"> <label for="req_barangay">BARANGAY CLEARANCE</label></div>
+            <div class="check-item"><input type="checkbox" value="BARANGAY HEALTH CERTIFICATE OR VACCINATION CARD" id="req_healthcert"> <label for="req_healthcert">BARANGAY HEALTH CERTIFICATE OR VACCINATION CARD</label></div>
+            <div class="check-item"><input type="checkbox" value="1X1 ID PICTURE ( WHITE BACKGROUND WITH COLLAR)" id="req_id"> <label for="req_id">1X1 ID PICTURE (WHITE BACKGROUND WITH COLLAR)</label></div>
+            <div class="check-item"><input type="checkbox" value="COPY OF MARRIAGE CERTIFICATE (FOR MARRIED WOMEN)" id="req_marriage"> <label for="req_marriage">COPY OF MARRIAGE CERTIFICATE (FOR MARRIED WOMEN)</label></div>
+          </div>
+          <small class="single-select-hint" style="color: #b85c00;">📄 Check all documents you are submitting.</small>
+        </div>
+
+        <div class="button-group" style="display: flex; gap: 1rem; margin-top: 2rem;">
+          <button type="button" id="clearFormBtn" class="btn-secondary btn-clear" style="flex:1;">CLEAR FORM</button>
+          <button type="submit" class="submit-btn" id="submitBtn" style="flex:2; margin-top:0;">SUBMIT ONLINE REGISTRATION</button>
+        </div>
+        <button type="button" id="backToAboutFromRegBtn" class="btn-secondary back-link" style="width:100%; margin-top: 1rem;">◀ BACK TO HOME</button>
+      </form>
+    </div>
+    <footer>🇵🇭 TESDA PTC Calumpit – Online Registration for Training | UTPRAS Program</footer>
+  </div>
+
+  <!-- PAGE 3: CONFIRMATION -->
+  <div id="confirmationContainer" class="page-container hidden">
+    <div class="tesda-header"><div class="header-title"><div class="header-title-row"><div class="header-logo-left"><img src="ptc-logo.png" class="header-logo" alt="PTC Logo" onerror="this.style.display='none'"></div><div class="header-title-container"><h1>TESDA PTC Calumpit<span>Online Registration</span></h1></div><div class="header-logos-right"><img src="logo 1.png" class="header-logo" alt="Logo 1" onerror="this.style.display='none'"><img src="logo 2.png" class="header-logo" alt="Logo 2" onerror="this.style.display='none'"></div></div><p>Training for Empowerment | Your journey starts here</p></div></div>
+    <div class="confirmation-body"><div class="check-icon" style="font-size:4rem; background:linear-gradient(135deg, #0b2b5c, #aa2e2e); width:90px; height:90px; line-height:90px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:white; margin-bottom:1.5rem;">✓</div><div class="confirmation-title" style="font-size:2rem; font-weight:700; color:#0b2b5c;">Thank You for Completing Your Registration!</div><div class="confirmation-message" style="font-size:1.1rem; color:#aa2e2e; margin-bottom:2rem;">Your application has been successfully submitted to TESDA PTC-CALUMPIT.</div><div class="info-card"><p><strong>👤 Full Name:</strong> <span id="confirmName">—</span></p><p><strong>📞 Contact Num:</strong> <span id="confirmPhone">—</span></p><p><strong>📧 Email:</strong> <span id="confirmEmail">—</span></p><p><strong>🎓 Qualification:</strong> <span id="confirmQual">—</span></p><p><strong>📅 Registration Date:</strong> <span id="confirmDate">—</span></p></div><div class="whats-next-box" style="background:#e6f4ea; border-radius:20px; padding:1rem; margin:1rem 0; text-align:left;"><p class="whats-next-title" style="font-weight:600;">📢 WHAT'S NEXT?</p><p>✅ You are now officially registered in the training program.</p><p>✅ Please wait for a call or text message from TESDA PTC-Calumpit regarding your training schedule.</p><p>✅ Keep your reference number for any follow-up inquiries.</p></div><div class="ref-number" id="referenceNumber">REF: TESPTC-XXXXXXXX</div><button id="newRegistrationBtn" class="btn-secondary">➕ Register Another Applicant</button></div>
+    <footer>🇵🇭 TESDA PTC Calumpit – Online Registration for Training | UTPRAS Program</footer>
+  </div>
+
+  <!-- SURVEY PAGES (condensed for brevity but functional) -->
+  <div id="surveyPage" class="page-container hidden"><div class="tesda-header"><div class="header-title"><div class="header-title-row"><div class="header-logo-left"><img src="ptc-logo.png" class="header-logo" alt="PTC Logo" onerror="this.style.display='none'"></div><div class="header-title-container"><h1>TESDA PTC Calumpit<span>Client Satisfaction (1/2)</span></h1></div><div class="header-logos-right"><img src="logo 1.png" class="header-logo" alt="Logo 1" onerror="this.style.display='none'"><img src="logo 2.png" class="header-logo" alt="Logo 2" onerror="this.style.display='none'"></div></div><p>Ang inyong kasagutan ay makatutulong upang mas mapabuti ang aming serbisyo publiko.</p></div></div><div class="form-body"><div class="section-title">CLIENT SATISFACTION SURVEY</div><div class="about-story"><p><strong>Client Satisfaction Measurement:</strong> ay naglalayong masubaybayan ang karanasan ng taumbayan hinggil sa kanilang pakikitransaksyon sa mga tanggapan ng gobyerno.</p></div><form id="surveyPart1Form"><div class="grid-2"><div class="form-field"><label>Pangalan</label><input type="text" id="survName" placeholder="Buong Pangalan" required></div><div class="form-field"><label>Email address (opsyonal)</label><input type="email" id="survEmail" placeholder="email@example.com"></div><div class="form-field"><label>Numero ng telepono</label><input type="tel" id="survPhone" placeholder="09XX XXX XXXX" required></div><div class="form-field"><label>Petsa</label><input type="date" id="survDate" required></div><div class="form-field"><label>Uri ng Kliyente</label><select id="survClientType" required><option value="" disabled selected>-- Pumili --</option><option>Mamamayan</option><option>Negosyo</option><option>Gobyerno (Empleyado o Ahensya)</option></select></div><div class="form-field"><label>Kasarian:</label><div class="radio-group"><div><input type="radio" name="survSex" value="Lalaki" id="sMale" required> <label for="sMale">Lalaki</label></div><div><input type="radio" name="survSex" value="Babae" id="sFemale"> <label for="sFemale">Babae</label></div></div></div><div class="form-field"><label>Uri ng Serbisyo</label><select id="survService" required><option value="" disabled selected>-- Pumili --</option><option>Assessment at Certification</option><option>Rehistrasyon ng Program</option><option>Pagsasanay</option><option>Scholarship</option><option>Administratibo</option><option>Iba pa</option></select></div></div><div class="survey-card"><h3 style="color: #0b2b5c;">Citizen's Charter (CC) Awareness</h3><div class="survey-field"><label>CC1. Alin sa mga sumusunod ang naglalarawan ng iyong kaalaman sa Citizens Charter?</label><div class="survey-options"><div class="survey-radio"><input type="radio" name="cc1" value="Alam ko ang CC at nakita sa opisina" id="cc1_1"> <label for="cc1_1">1. Alam ko ang Citizens Charter at nakita ko ito sa napuntahang opisina.</label></div><div class="survey-radio"><input type="radio" name="cc1" value="Alam ko ang CC pero hindi nakita" id="cc1_2"> <label for="cc1_2">2. Alam ko ang Citizens Charter pero hindi ko ito nakita sa napuntahang opisina.</label></div><div class="survey-radio"><input type="radio" name="cc1" value="Nalaman ko ang CC nang makita" id="cc1_3"> <label for="cc1_3">3. Nalaman ko ang Citizens Charter nang makita ko ito sa napuntahang opisina.</label></div><div class="survey-radio"><input type="radio" name="cc1" value="Hindi ko alam ang CC at walang nakita" id="cc1_4"> <label for="cc1_4">4. Hindi ko alam kung ano ang Citizens Charter at wala akong nakita sa napuntahang opisina.</label></div></div></div><div class="survey-field"><label>CC2. Kung alam ang Citizens Charter (Pumili sa opsyon 1-3 sa CC1), masasabi mo ba na ang Citizens Charter ng napuntahang opisina ay...</label><div class="survey-options"><div class="survey-radio"><input type="radio" name="cc2" value="Madaling makita" id="cc2_1"> <label for="cc2_1">1. Madaling makita</label></div><div class="survey-radio"><input type="radio" name="cc2" value="Medyo madaling makita" id="cc2_2"> <label for="cc2_2">2. Medyo madaling makita</label></div><div class="survey-radio"><input type="radio" name="cc2" value="Mahirap makita" id="cc2_3"> <label for="cc2_3">3. Mahirap makita</label></div><div class="survey-radio"><input type="radio" name="cc2" value="Hindi makita" id="cc2_4"> <label for="cc2_4">4. Hindi makita</label></div><div class="survey-radio"><input type="radio" name="cc2" value="N/A" id="cc2_5"> <label for="cc2_5">5. N/A</label></div></div></div><div class="survey-field"><label>CC3. Kung alam ang Citizens Charter (Pumili sa opsyon 1-3 sa CC1), gaano nakatulong ang Citizens Charter sa transaksyon mo?</label><div class="survey-options"><div class="survey-radio"><input type="radio" name="cc3" value="Sobrang nakatulong" id="cc3_1"> <label for="cc3_1">1. Sobrang nakatulong</label></div><div class="survey-radio"><input type="radio" name="cc3" value="Nakatulong naman" id="cc3_2"> <label for="cc3_2">2. Nakatulong naman</label></div><div class="survey-radio"><input type="radio" name="cc3" value="Hindi nakatulong" id="cc3_3"> <label for="cc3_3">3. Hindi nakatulong</label></div><div class="survey-radio"><input type="radio" name="cc3" value="N/A" id="cc3_4"> <label for="cc3_4">4. N/A</label></div></div></div></div><div class="nav-buttons"><button type="button" id="closeSurveyBtn" class="btn-secondary back-link">◀ CANCEL</button><button type="button" id="nextToPart2Btn" class="btn-secondary" style="background: #0b2b5c;">SUSUNOD NA PAHINA →</button></div></form></div><footer>🇵🇭 TESDA PTC Calumpit – Client Satisfaction Survey | UTPRAS Program</footer></div>
+  <div id="surveyPart2Page" class="page-container hidden"><div class="tesda-header"><div class="header-title"><div class="header-title-row"><div class="header-logo-left"><img src="ptc-logo.png" class="header-logo" alt="PTC Logo" onerror="this.style.display='none'"></div><div class="header-title-container"><h1>TESDA PTC Calumpit<span>Client Satisfaction (2/2)</span></h1></div><div class="header-logos-right"><img src="logo 1.png" class="header-logo" alt="Logo 1" onerror="this.style.display='none'"><img src="logo 2.png" class="header-logo" alt="Logo 2" onerror="this.style.display='none'"></div></div><p>Serbisyo Publiko – Inyong karanasan ay mahalaga.</p></div></div><div class="form-body"><p style="font-weight:600;">SERVICE QUALITY DIMENSIONS</p><div class="header-rating"><div class="header-badge">5 (Lubos)</div><div class="header-badge">4 (Sumasang-ayon)</div><div class="header-badge">3 (Walang kinikilingan)</div><div class="header-badge">2 (Hindi sumasang-ayon)</div><div class="header-badge">1 (Lubos na hindi)</div><div class="header-badge">N/A</div></div><div id="dimensionsContainer" class="dimensions-grid"></div><div class="form-field"><label>Mga suhestiyon:</label><textarea id="surveySuggestions" rows="3" placeholder="I-type ang inyong mungkahi..."></textarea></div><div class="nav-buttons"><button type="button" id="backToPart1Btn" class="btn-secondary back-link">◀ BUMALIK</button><button type="button" id="submitFullSurveyBtn" class="btn-secondary" style="background:#0b2b5c;">IPASA ANG SURVEY</button></div></div><footer>🇵🇭 TESDA PTC Calumpit</footer></div>
+  <div id="surveyThankYouPage" class="page-container hidden"><div class="tesda-header"><div class="header-title"><div class="header-title-row"><div class="header-logo-left"><img src="ptc-logo.png" class="header-logo" alt="PTC Logo" onerror="this.style.display='none'"></div><div class="header-title-container"><h1>TESDA PTC Calumpit<span>MARAMING SALAMAT!</span></h1></div><div class="header-logos-right"><img src="logo 1.png" class="header-logo" alt="Logo 1" onerror="this.style.display='none'"><img src="logo 2.png" class="header-logo" alt="Logo 2" onerror="this.style.display='none'"></div></div><p>Ang inyong boses ay mahalaga</p></div></div><div class="confirmation-body"><div class="thankyou-icon">🙏</div><div class="section-title" style="border-left:none;">MARAMING SALAMAT SA INYONG PAGTUGON!</div><p style="color:#aa2e2e;">Matagumpay na naipasa ang inyong Client Satisfaction Survey.</p><button id="surveyDoneBackBtn" class="btn-secondary">◀ BUMALIK SA UNANG PAHINA</button></div><footer>🇵🇭 TESDA PTC Calumpit – Client Satisfaction Survey</footer></div>
+
+  <script>
+    (function() {
+      const GOOGLE_SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwYh2s7UCtIrNJjn8WIGfjGwesRsRdnSwPO0amp1fv87LW_7o-u8CTBcxcDQ2QAnobtOg/exec";
+      const SURVEY_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzljY6CvYATWTovrDDFTxBYRuZqhC90ayvzBO7EXB_eqCy2aIzjz1J_U657_fa8fEbQ/exec";
+      const aboutPage = document.getElementById('aboutPage'), registrationPage = document.getElementById('registrationPage'), confirmationContainer = document.getElementById('confirmationContainer'), surveyPage = document.getElementById('surveyPage'), surveyPart2Page = document.getElementById('surveyPart2Page'), surveyThankYouPage = document.getElementById('surveyThankYouPage');
+      function showRegLoading(msg) { let ov = document.getElementById('regLoadingOverlay'); if(!ov){ ov=document.createElement('div'); ov.id='regLoadingOverlay'; ov.className='loading-overlay'; ov.innerHTML=`<div class="loading-card"><div class="spinner-large"></div><p>${msg}</p><small>Please wait</small></div>`; document.body.appendChild(ov);} else { ov.querySelector('p').innerText=msg; ov.style.display='flex';} }
+      function hideRegLoading() { const ov = document.getElementById('regLoadingOverlay'); if(ov) ov.style.display='none'; }
+      function showSurveyLoading(msg) { let ov = document.getElementById('surveyLoadingOverlay'); if(!ov){ ov=document.createElement('div'); ov.id='surveyLoadingOverlay'; ov.className='loading-overlay'; ov.innerHTML=`<div class="loading-card"><div class="spinner-large"></div><p>${msg}</p><small>Huwag isara</small></div>`; document.body.appendChild(ov);} else { ov.querySelector('p').innerText=msg; ov.style.display='flex';} }
+      function hideSurveyLoading() { const ov = document.getElementById('surveyLoadingOverlay'); if(ov) ov.style.display='none'; }
+      function generateReference() { const chars='ABCDEFGHJKLMNPQRSTUVWXYZ0123456789'; let ref='TESPTC-'; for(let i=0;i<8;i++) ref+=chars.charAt(Math.floor(Math.random()*chars.length)); return ref; }
+      function collectFormData() {
+        const selected = document.querySelector('input[name="qualificationRadio"]:checked');
+        if(!selected){ alert('❌ Select ONE Qualification program.'); return null; }
+        const fullname = document.getElementById('fullname').value.trim(), middlename = document.getElementById('middlename').value.trim(), phone = document.getElementById('phone').value.trim(), address = document.getElementById('address').value.trim(), email = document.getElementById('email').value.trim(), sex = document.querySelector('input[name="sex"]:checked'), dob = document.getElementById('dob').value, ageRaw = document.getElementById('age').value.trim(), civil = document.getElementById('civilstatus').value;
+        if(!fullname||!middlename||!phone||!address||!email||!email.includes('@')||!sex||!dob||!ageRaw||isNaN(parseInt(ageRaw))||!civil){ alert('Complete all required fields.'); return null; }
+        const reqs = Array.from(document.querySelectorAll('#requirementsGroup input[type="checkbox"]:checked')).map(cb=>cb.value);
+        if(reqs.length===0){ alert('Check at least one requirement.'); return null; }
+        return { timestamp: new Date().toLocaleString('en-PH',{timeZone:'Asia/Manila'}), fullname, middlename, phone, address, email, sex: sex.value, dob, age: parseInt(ageRaw), civil, qualifications: selected.value, requirements: reqs.join(', '), reference: generateReference() };
+      }
+      async function submitSheet(data) { try { const params = new URLSearchParams(); Object.keys(data).forEach(k=>params.append(k,data[k])); await fetch(GOOGLE_SHEETS_WEBAPP_URL,{method:'POST',mode:'no-cors',body:params}); return true; } catch(e){ return false; } }
+      function showConfirm(data){ document.getElementById('confirmName').innerText=data.fullname; document.getElementById('confirmPhone').innerText=data.phone; document.getElementById('confirmEmail').innerText=data.email; document.getElementById('confirmQual').innerText=data.qualifications; document.getElementById('confirmDate').innerText=data.timestamp; document.getElementById('referenceNumber').innerText=data.reference; registrationPage.classList.add('hidden'); confirmationContainer.classList.remove('hidden'); window.scrollTo(0,0); }
+      function resetForm(){ document.getElementById('enrollmentForm').reset(); document.querySelectorAll('input[name="qualificationRadio"]').forEach(r=>r.checked=false); document.querySelectorAll('#requirementsGroup input[type="checkbox"]').forEach(c=>c.checked=false); document.querySelectorAll('input[name="sex"]').forEach(r=>r.checked=false); document.getElementById('civilstatus').selectedIndex=0; document.getElementById('dob').value=''; document.getElementById('age').value=''; }
+      document.getElementById('aboutNextBtn')?.addEventListener('click',()=>{ aboutPage.classList.add('hidden'); registrationPage.classList.remove('hidden'); window.scrollTo(0,0); });
+      document.getElementById('backToAboutFromRegBtn')?.addEventListener('click',()=>{ registrationPage.classList.add('hidden'); aboutPage.classList.remove('hidden'); window.scrollTo(0,0); });
+      document.getElementById('clearFormBtn')?.addEventListener('click',()=>{ if(confirm('Clear all fields?')) resetForm(); });
+      document.getElementById('enrollmentForm')?.addEventListener('submit', async(e)=>{ e.preventDefault(); const data = collectFormData(); if(!data) return; const btn = document.getElementById('submitBtn'); btn.disabled=true; const orig=btn.innerHTML; btn.innerHTML='<span class="loading-spinner"></span> SUBMITTING...'; showRegLoading('Submitting registration to TESDA...'); await submitSheet(data); await new Promise(r=>setTimeout(r,500)); hideRegLoading(); showConfirm(data); btn.disabled=false; btn.innerHTML=orig; });
+      document.getElementById('newRegistrationBtn')?.addEventListener('click',()=>{ resetForm(); confirmationContainer.classList.add('hidden'); aboutPage.classList.remove('hidden'); window.scrollTo(0,0); });
+      const noneChk = document.getElementById('req_none'); const otherReqs = document.querySelectorAll('#requirementsGroup input[type="checkbox"]:not(#req_none)'); if(noneChk){ noneChk.addEventListener('change',function(){ if(this.checked) otherReqs.forEach(c=>c.checked=false); }); otherReqs.forEach(c=>{ c.addEventListener('change',function(){ if(c.checked && noneChk) noneChk.checked=false; }); }); }
+      document.getElementById('dob')?.addEventListener('change',function(){ const bd=new Date(this.value), today=new Date(); let a=today.getFullYear()-bd.getFullYear(); if(today.getMonth()<bd.getMonth()||(today.getMonth()===bd.getMonth()&&today.getDate()<bd.getDate())) a--; if(a>=0&&a<=120) document.getElementById('age').value=a; else document.getElementById('age').value=''; });
+      document.getElementById('openSurveyFromAboutBtn')?.addEventListener('click',()=>{ aboutPage.classList.add('hidden'); surveyPage.classList.remove('hidden'); document.getElementById('survDate').value=new Date().toISOString().split('T')[0]; window.scrollTo(0,0); });
+      document.getElementById('closeSurveyBtn')?.addEventListener('click',()=>{ surveyPage.classList.add('hidden'); aboutPage.classList.remove('hidden'); document.getElementById('surveyPart1Form').reset(); window.scrollTo(0,0); });
+      document.getElementById('nextToPart2Btn')?.addEventListener('click',()=>{ const n=document.getElementById('survName').value.trim(), p=document.getElementById('survPhone').value.trim(), ct=document.getElementById('survClientType').value, sv=document.getElementById('survService').value, sx=Array.from(document.querySelectorAll('input[name="survSex"]')).some(r=>r.checked); if(!n||!p||!ct||!sv||!sx){ alert('Kumpletuhin ang mga field.'); return; } surveyPage.classList.add('hidden'); surveyPart2Page.classList.remove('hidden'); window.scrollTo(0,0); });
+      document.getElementById('backToPart1Btn')?.addEventListener('click',()=>{ surveyPart2Page.classList.add('hidden'); surveyPage.classList.remove('hidden'); window.scrollTo(0,0); });
+      const dims = ["0. Nasiyahan ako sa serbisyo","1. Makatwiran ang oras","2. Sumusunod sa dokumento","3. Madali ang proseso","4. Madaling makahanap ng impormasyon","5. Makatwirang halaga","6. Patas na serbisyo","7. Magalang na tauhan","8. Nakuha ang kinakailangan"];
+      const ratings = [{value:"5",label:"5"},{value:"4",label:"4"},{value:"3",label:"3"},{value:"2",label:"2"},{value:"1",label:"1"}], naOpt = {value:"N/A",label:"N/A"};
+      const dimContainer = document.getElementById('dimensionsContainer');
+      if(dimContainer){
+        dimContainer.innerHTML='';
+        dims.forEach((txt,idx)=>{ const row=document.createElement('div'); row.className='dim-row'; const lbl=document.createElement('div'); lbl.className='dim-label'; lbl.innerText=txt; row.appendChild(lbl); const grp=document.createElement('div'); grp.className='rating-group'; const createTile=(opt)=>{ const tile=document.createElement('div'); tile.className='checkbox-option'; if(opt.value==='N/A') tile.classList.add('na-option'); const num=document.createElement('div'); num.className='rating-number'; num.innerText=opt.label; const radio=document.createElement('input'); radio.type='radio'; radio.name=`dim_${idx}`; radio.value=opt.value; tile.appendChild(radio); tile.appendChild(num); tile.addEventListener('click',(e)=>{ e.stopPropagation(); Array.from(tile.parentElement.children).forEach(c=>c.classList.remove('selected')); tile.classList.add('selected'); const r=tile.querySelector('input'); if(r) r.checked=true; r.dispatchEvent(new Event('change')); }); return tile; }; ratings.forEach(r=>grp.appendChild(createTile(r))); grp.appendChild(createTile(naOpt)); row.appendChild(grp); dimContainer.appendChild(row); });
+      }
+      document.getElementById('submitFullSurveyBtn')?.addEventListener('click',async()=>{ for(let i=0;i<dims.length;i++){ if(!document.querySelector(`input[name="dim_${i}"]:checked`)){ alert(`Pumili ng sagot sa bilang ${i+1}`); return; } } const getDim=(i)=>document.querySelector(`input[name="dim_${i}"]:checked`)?.value||''; const getRadio=(n)=>document.querySelector(`input[name="${n}"]:checked`)?.value||''; const responses=[]; for(let i=0;i<dims.length;i++) responses.push(getDim(i)); const fd=new FormData(); fd.append('action','submitSurvey'); fd.append('timestamp',new Date().toISOString()); fd.append('name',document.getElementById('survName').value.trim()); fd.append('email',document.getElementById('survEmail').value.trim()); fd.append('phone',document.getElementById('survPhone').value.trim()); fd.append('date',document.getElementById('survDate').value); fd.append('clientType',document.getElementById('survClientType').value); fd.append('sex',getRadio('survSex')); fd.append('serviceType',document.getElementById('survService').value); fd.append('cc1',getRadio('cc1')); fd.append('cc2',getRadio('cc2')); fd.append('cc3',getRadio('cc3')); for(let i=0;i<responses.length;i++) fd.append(`sq${i+1}`,responses[i]); fd.append('suggestions',document.getElementById('surveySuggestions').value.trim()); showSurveyLoading('Ipinapadala ang survey...'); try{ await fetch(SURVEY_SCRIPT_URL,{method:'POST',body:fd}); }catch(e){ console.error(e); } hideSurveyLoading(); surveyPart2Page.classList.add('hidden'); surveyThankYouPage.classList.remove('hidden'); document.getElementById('surveyPart1Form').reset(); document.querySelectorAll('.checkbox-option').forEach(t=>t.classList.remove('selected')); document.getElementById('survDate').value=new Date().toISOString().split('T')[0]; document.getElementById('surveySuggestions').value=''; window.scrollTo(0,0); });
+      document.getElementById('surveyDoneBackBtn')?.addEventListener('click',()=>{ surveyThankYouPage.classList.add('hidden'); aboutPage.classList.remove('hidden'); document.querySelectorAll('.checkbox-option').forEach(t=>t.classList.remove('selected')); window.scrollTo(0,0); });
+      window.addEventListener('load',()=>{ registrationPage.classList.add('hidden'); confirmationContainer.classList.add('hidden'); surveyPage.classList.add('hidden'); surveyPart2Page.classList.add('hidden'); surveyThankYouPage.classList.add('hidden'); aboutPage.classList.remove('hidden'); if(document.getElementById('survDate')) document.getElementById('survDate').value=new Date().toISOString().split('T')[0]; });
+    })();
+  </script>
+</body>
+</html>
